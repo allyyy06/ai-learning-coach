@@ -51,6 +51,10 @@ ai-learning-coach/
 ├── prompts/             # System prompts for AI agents
 ├── .env.example         # Environment variables template
 ├── requirements.txt     # Python dependencies
+├── Dockerfile           # Docker configuration
+├── docker-compose.yml   # Multi-container setup
+├── CONTRIBUTING.md      # Guidelines for contributors
+├── LICENSE              # MIT License
 └── README.md            # Project documentation
 ```
 
@@ -75,12 +79,19 @@ cp .env.example .env
 
 #### 4. Run the Application
 
-**Start the Backend (FastAPI):**
+**Option A: Using Docker (Recommended)**
+```bash
+docker-compose up --build
+```
+The app will be available at `http://localhost:8501`.
+
+**Option B: Manual Setup**
+*Start the Backend (FastAPI):*
 ```bash
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-**Start the Frontend (Streamlit):**
+*Start the Frontend (Streamlit):*
 Open a new terminal window and run:
 ```bash
 python -m streamlit run frontend/app.py
@@ -141,6 +152,10 @@ ai-learning-coach/
 ├── prompts/             # Ajanlar için sistem komutları (prompts)
 ├── .env.example         # Çevre değişkenleri şablonu
 ├── requirements.txt     # Python kütüphaneleri
+├── Dockerfile           # Docker yapılandırma dosyası
+├── docker-compose.yml   # Docker compose konfigürasyonu
+├── CONTRIBUTING.md      # Katkıda bulunma rehberi
+├── LICENSE              # MIT Lisansı
 └── README.md            # Proje dokümantasyonu
 ```
 
@@ -165,12 +180,19 @@ cp .env.example .env
 
 #### 4. Uygulamayı Başlatın
 
-**Arka Ucu (Backend) Başlatın:**
+**Seçenek A: Docker Kullanarak (Önerilen)**
+```bash
+docker-compose up --build
+```
+Uygulama tarayıcınızda `http://localhost:8501` adresinde açılacaktır.
+
+**Seçenek B: Manuel Kurulum**
+*Arka Ucu (Backend) Başlatın:*
 ```bash
 python -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-**Ön Yüzü (Frontend) Başlatın:**
+*Ön Yüzü (Frontend) Başlatın:*
 Yeni bir terminal penceresi açın ve şu komutu çalıştırın:
 ```bash
 python -m streamlit run frontend/app.py
