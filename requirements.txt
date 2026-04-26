@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+streamlit
+openai
+pydantic
+python-dotenv
+sqlalchemy
+httpx
+pandas
+plotly
+python-multipart
+google-generativeai
+groq
+streamlit-agraph
