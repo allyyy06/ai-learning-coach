@@ -6,6 +6,25 @@ import json
 import time
 from datetime import datetime
 from streamlit_agraph import agraph, Node, Edge, Config
+import subprocess
+import sys
+import socket
+
+@st.cache_resource
+def start_backend():
+    def is_port_in_use(port):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            return s.connect_ex(('localhost', port)) == 0
+
+    if not is_port_in_use(8000):
+        subprocess.Popen([sys.executable, "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"])
+        for _ in range(10):
+            if is_port_in_use(8000):
+                break
+            time.sleep(0.5)
+    return True
+
+start_backend()
 
 # Page Config
 st.set_page_config(
